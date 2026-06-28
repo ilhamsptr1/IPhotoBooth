@@ -169,17 +169,24 @@ export default function StartScreen() {
         </div>
 
         {/* Title */}
-        <motion.h1
+        <motion.div
           initial={{ y: -8, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="font-bebas tracking-widest text-center z-10 select-none"
-          style={{ fontSize: 'clamp(1.8rem, 4.5vw, 3rem)' }}
+          className="flex flex-col items-center z-10 select-none"
         >
-          <span className="text-engraved">I Photo</span>
-          <span className="text-engraved-red">Booth</span>
-          <span className="font-inter text-[9px] font-bold tracking-[0.35em] text-[#8b7a66] ml-3 align-middle uppercase">Vintage</span>
-        </motion.h1>
+          <h1
+            className="font-bebas tracking-widest text-center"
+            style={{ fontSize: 'clamp(1.8rem, 4.5vw, 3rem)' }}
+          >
+            <span className="text-engraved">I Photo</span>
+            <span className="text-engraved-red">Booth</span>
+            <span className="font-inter text-[9px] font-bold tracking-[0.35em] text-[#8b7a66] ml-3 align-middle uppercase">Vintage</span>
+          </h1>
+          <p className="font-inter text-[8px] tracking-[0.3em] text-[#8b7a66]/60 uppercase -mt-0.5">
+            © Ilham Saputra 2026
+          </p>
+        </motion.div>
 
         {/* Gallery Toggle */}
         <button
