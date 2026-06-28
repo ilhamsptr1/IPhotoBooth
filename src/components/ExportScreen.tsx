@@ -5,7 +5,8 @@ import { useStore } from '@/store/useStore';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Download, FileText, RefreshCcw, Printer, PlaySquare, QrCode, X, Share2, Copy, Check } from 'lucide-react';
 import jsPDF from 'jspdf';
-import gifshot from 'gifshot';
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const gifshot = require('gifshot');
 import { QRCodeCanvas } from 'qrcode.react';
 
 export default function ExportScreen() {
