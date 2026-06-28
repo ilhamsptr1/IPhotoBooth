@@ -1,0 +1,182 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f4ebd8; /* Cream */
+  --foreground: #4a3b32; /* Dark Brown */
+  --kodak-orange: #f26b21;
+  --kodak-yellow: #ffb500;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand-orange: var(--kodak-orange);
+  --color-brand-yellow: var(--kodak-yellow);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-space), 'Courier New', Courier, monospace;
+  position: relative;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .font-bebas {
+  font-family: var(--font-bebas), sans-serif;
+}
+
+.font-special {
+  font-family: var(--font-special), monospace;
+}
+
+.font-oswald {
+  font-family: var(--font-oswald), sans-serif;
+}
+
+.font-inter {
+  font-family: var(--font-inter), sans-serif;
+}
+
+/* Utilities */
+.bg-radial-warm {
+  background: radial-gradient(circle at center, #f4ebd8 0%, #e6d3ba 100%);
+}
+.bg-radial-dark {
+  background: radial-gradient(circle at center, #4a3b32 0%, #2a201b 100%);
+}
+.glass-panel {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 32px 0 rgba(74, 59, 50, 0.1);
+}
+.glass-panel-dark {
+  background: rgba(74, 59, 50, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* Vintage Camera UI Utilities (Custom Palette) */
+.bg-leather {
+  /* Dark Brown Leather */
+  background-color: #4a3b32;
+  background-image: radial-gradient(#3d3029 15%, transparent 16%),
+  radial-gradient(#3d3029 15%, transparent 16%);
+  background-size: 8px 8px;
+  background-position: 0 0, 4px 4px;
+}
+
+.bg-metal {
+  /* Cream / Dust Metal Plates */
+  background: linear-gradient(180deg, #f4ebd8 0%, #e6d8c3 40%, #d8c6ac 60%, #e6d8c3 100%);
+  box-shadow: inset 0 2px 4px rgba(255,255,255,0.9), inset 0 -2px 5px rgba(74,59,50,0.3);
+}
+
+.text-engraved {
+  /* Engraved on Cream metal */
+  color: #4a3b32;
+  text-shadow: 0px 1px 1px rgba(255,255,255,0.8), 0px -1px 1px rgba(74,59,50,0.5);
+}
+
+.text-engraved-red {
+  /* Orange engraved on Cream */
+  color: #f26b21;
+  text-shadow: 0px 1px 1px rgba(255,255,255,0.8), 0px -1px 1px rgba(74,59,50,0.5);
+}
+
+.btn-mechanical {
+  /* Cream/Dust buttons */
+  background: linear-gradient(145deg, #f4ebd8, #e6d8c3);
+  border: 1px solid #cbb89d;
+  box-shadow: 0 6px 0 #bfa98b, 0 8px 10px rgba(74,59,50,0.3), inset 0 1px 2px rgba(255,255,255,0.8);
+  transform: translateY(0);
+  transition: all 0.1s ease;
+  color: #4a3b32;
+}
+
+.btn-mechanical:active {
+  box-shadow: 0 1px 0 #bfa98b, 0 2px 4px rgba(74,59,50,0.3), inset 0 2px 4px rgba(74,59,50,0.1);
+  transform: translateY(5px);
+}
+
+.btn-mechanical.active {
+  /* Orange active state */
+  background: linear-gradient(145deg, #f26b21, #e05c15);
+  border-color: #c94c0b;
+  box-shadow: 0 1px 0 #c94c0b, 0 2px 4px rgba(74,59,50,0.3), inset 0 2px 4px rgba(0,0,0,0.2);
+  transform: translateY(5px);
+  color: #f4ebd8;
+}
+
+/* Vintage Film Effects */
+.film-grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+  opacity: 0.4;
+  z-index: 50;
+  mix-blend-mode: overlay;
+}
+
+.light-leak {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 10% 20%, rgba(242, 107, 33, 0.4) 0%, transparent 40%),
+              radial-gradient(circle at 90% 80%, rgba(255, 181, 0, 0.3) 0%, transparent 50%);
+  mix-blend-mode: screen;
+  z-index: 49;
+  opacity: 0.6;
+}
+
+/* Polaroid Print Animation */
+@keyframes slideOut {
+  0% { transform: translateY(-100%); opacity: 0; }
+  20% { opacity: 1; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+.animate-print {
+  animation: slideOut 2.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* Adjustment Slider Styling */
+input[type='range'] {
+  -webkit-appearance: none;
+  height: 6px;
+  border-radius: 99px;
+  background: rgba(255,255,255,0.1);
+  outline: none;
+  cursor: pointer;
+}
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ffb500;
+  border: 2px solid #f26b21;
+  box-shadow: 0 0 6px rgba(242,107,33,0.6);
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+input[type='range']::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+input[type='range']::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ffb500;
+  border: 2px solid #f26b21;
+  cursor: pointer;
+}
+input[type='range']::-webkit-slider-runnable-track {
+  background: linear-gradient(to right, rgba(242,107,33,0.4), rgba(255,181,0,0.2));
+  border-radius: 99px;
+  height: 6px;
+}
