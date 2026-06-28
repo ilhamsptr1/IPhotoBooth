@@ -128,6 +128,7 @@ export default function ExportScreen() {
     setIsGeneratingGIF(true);
     setGifProgress(0);
     
+    // @ts-ignore
     gifshot.createGIF({
         images: photos,
         gifWidth: 600,
